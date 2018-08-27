@@ -1,0 +1,36 @@
+<div class="table-responsive">
+  <ngx-spinner size = "large"
+               color = "#fff"
+               type = "cog"
+  ><p style="font-size: 20px; color: white; margin-top: 50px;">Loading...</p></ngx-spinner>
+  <div class="container pt-2">
+    <div class="position-fixed"><button class="btn btn-success" routerLink="/new-todo">Add new todo</button></div>
+  </div>
+  <!-- /.container -->
+  <div class="container mt-5">
+    <table class="table table-striped table-bordered">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">User Id</th>
+        <th scope="col">Title</th>
+        <th scope="col">Completed</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let todo of todos; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ todo.userId }}</td>
+        <td>{{ todo.title }}</td>
+        <td>{{ todo.completed }}</td>
+        <td><button class="btn btn-danger" (click)="onDelete(todo.id)">Delete</button></td>
+        <td><button routerLink="/todos/{{ todo.id }}" class="btn btn-dark">Edit</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- /.container -->
+</div>
+<!-- /.table-responsive -->

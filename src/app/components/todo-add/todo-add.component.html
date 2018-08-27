@@ -1,0 +1,60 @@
+<div class="container mt-5">
+  <ngx-spinner size = "large"
+               color = "#fff"
+               type = "cog"
+  ><p style="font-size: 20px; color: white; margin-top: 50px;">Loading Todo...</p></ngx-spinner>
+
+  <form #addNewTodoForm="ngForm">
+    <div class="row">
+      <div class="col col-md-6 offset-md-3">
+        <div class="card card-body">
+          <h4>Add new todo</h4>
+          <!--User Id-->
+          <div class="form-group">
+            <label for="userId">User Id</label>
+            <input
+              type="text"
+              name="userId"
+              id="userId"
+              class="form-control"
+              [ngModel]="todo?.userId"
+              (ngModelChange)="todo.userId = $event"
+              required
+            >
+          </div>
+          <!--Title-->
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input
+              type="text"
+              name="title"
+              id="title"
+              class="form-control"
+              [ngModel]="todo?.title"
+              (ngModelChange)="todo.title = $event"
+              required
+            >
+          </div>
+          <!--completed-->
+          <div class="form-group">
+            <label for="completed">Completed</label>
+            <input
+              type="text"
+              name="completed"
+              id="completed"
+              class="form-control"
+              [ngModel]="todo?.completed"
+              (ngModelChange)="todo.completed = $event"
+              required
+            >
+          </div>
+          <button type="submit" class="btn btn-dark btn-block btn-lg" [disabled]="addNewTodoForm.invalid" (click)="onAddNewTodo()">Add new todo</button>
+        </div>
+        <!-- /.card card-body -->
+      </div>
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
+  </form>
+</div>
+<!-- /.container -->

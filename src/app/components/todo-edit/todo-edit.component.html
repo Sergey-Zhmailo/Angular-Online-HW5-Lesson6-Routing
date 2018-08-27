@@ -1,0 +1,64 @@
+<div class="container mt-5">
+  <ngx-spinner size = "large"
+               color = "#fff"
+               type = "cog"
+  ><p style="font-size: 20px; color: white; margin-top: 50px;">Loading Todo...</p></ngx-spinner>
+
+    <form #userEditForm="ngForm">
+      <div class="row">
+        <div class="col col-md-6 offset-md-3">
+          <div class="card card-body">
+              <h4>Todo</h4>
+              <!--User Id-->
+              <div class="form-group">
+                <label for="userId">User Id</label>
+                <input
+                  type="text"
+                  name="userId"
+                  id="userId"
+                  class="form-control"
+                  [ngModel]="todo?.userId"
+                  (ngModelChange)="todo.userId = $event"
+                  required
+                  [readonly]="isReadOnly"
+                >
+              </div>
+              <!--Title-->
+              <div class="form-group">
+                <label for="title">Title</label>
+                <input
+                  type="text"
+                  name="title"
+                  id="title"
+                  class="form-control"
+                  [ngModel]="todo?.title"
+                  (ngModelChange)="todo.title = $event"
+                  required
+                  [readonly]="isReadOnly"
+                >
+              </div>
+              <!--completed-->
+              <div class="form-group">
+                <label for="completed">Completed</label>
+                <input
+                  type="text"
+                  name="completed"
+                  id="completed"
+                  class="form-control"
+                  [ngModel]="todo?.completed"
+                  (ngModelChange)="todo.completed = $event"
+                  required
+                  [readonly]="isReadOnly"
+                >
+              </div>
+              <button class="btn btn-dark btn-block btn-lg" *ngIf="isReadOnly" (click)="isReadOnly = false">Edit</button>
+              <button class="btn btn-dark btn-block btn-lg" *ngIf="!isReadOnly" (click)="onEditTodo()">Save</button>
+          </div>
+          <!-- /.card card-body -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </form>
+</div>
+<!-- /.container -->

@@ -1,0 +1,235 @@
+<div class="container mt-5">
+  <ngx-spinner size = "large"
+               color = "#fff"
+               type = "cog"
+  ><p style="font-size: 20px; color: white; margin-top: 50px;">Loading...</p></ngx-spinner>
+  <div class="card card-body">
+      <form #userEditForm="ngForm">
+        <div class="row">
+          <div class="col col-md-4">
+            <h4>User</h4>
+            <!--Name-->
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                class="form-control"
+                [ngModel]="user?.name"
+                (ngModelChange)="user.name = $event"
+                required
+                [readonly]="isReadOnly"
+              >
+            </div>
+            <!--username-->
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                class="form-control"
+                [ngModel]="user?.username"
+                (ngModelChange)="user.username = $event"
+                required
+                [readonly]="isReadOnly"
+              >
+            </div>
+            <h4>Contacts</h4>
+            <!--email-->
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="text"
+                name="email"
+                id="email"
+                class="form-control"
+                [ngModel]="user?.email"
+                (ngModelChange)="user.email = $event"
+                required
+                [readonly]="isReadOnly"
+              >
+            </div>
+            <!--phone-->
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input
+                type="text"
+                name="phone"
+                id="phone"
+                class="form-control"
+                [ngModel]="user?.phone"
+                (ngModelChange)="user.phone = $event"
+                required
+                [readonly]="isReadOnly"
+              >
+            </div>
+            <!--website-->
+            <div class="form-group">
+              <label for="website">Website</label>
+              <input
+                type="text"
+                name="website"
+                id="website"
+                class="form-control"
+                [ngModel]="user?.website"
+                (ngModelChange)="user.website = $event"
+                required
+                [readonly]="isReadOnly"
+              >
+            </div>
+          </div>
+          <!-- /.col -->
+          <div class="col col-md-4">
+            <h4>Adress</h4>
+            <!--street-->
+            <div class="form-group">
+              <label for="street">Street</label>
+              <input
+                type="text"
+                name="street"
+                id="street"
+                class="form-control"
+                [ngModel]="user?.address.street"
+                (ngModelChange)="user.address.street = $event"
+                required
+                [readonly]="isReadOnly"
+              >
+            </div>
+            <!--suite-->
+            <div class="form-group">
+              <label for="suite">Suite</label>
+              <input
+                type="text"
+                name="suite"
+                id="suite"
+                class="form-control"
+                [ngModel]="user?.address.suite"
+                (ngModelChange)="user.address.suite = $event"
+                required
+                [readonly]="isReadOnly"
+              >
+            </div>
+            <!--city-->
+            <div class="form-group">
+              <label for="city">City</label>
+              <input
+                type="text"
+                name="city"
+                id="city"
+                class="form-control"
+                [ngModel]="user?.address.city"
+                (ngModelChange)="user.address.city = $event"
+                required
+                [readonly]="isReadOnly"
+              >
+            </div>
+            <!--zipcode-->
+            <div class="form-group">
+              <label for="zipcode">Zipcode</label>
+              <input
+                type="text"
+                name="zipcode"
+                id="zipcode"
+                class="form-control"
+                [ngModel]="user?.address.zipcode"
+                (ngModelChange)="user.address.zipcode = $event"
+                required
+                [readonly]="isReadOnly"
+              >
+            </div>
+            <h4>Geo</h4>
+            <div class="row">
+              <div class="col col-md-6">
+                <!--lat-->
+                <div class="form-group">
+                  <label for="lat">Lat</label>
+                  <input
+                    type="text"
+                    name="lat"
+                    id="lat"
+                    class="form-control"
+                    [ngModel]="user?.address.geo.lat"
+                    (ngModelChange)="user.address.geo.lat = $event"
+                    required
+                    [readonly]="isReadOnly"
+                  >
+                </div>
+              </div>
+              <!-- /.col col-md-6 -->
+              <div class="col col-md-6">
+                <!--lng-->
+                <div class="form-group">
+                  <label for="lng">Lng</label>
+                  <input
+                    type="text"
+                    name="lng"
+                    id="lng"
+                    class="form-control"
+                    [ngModel]="user?.address.geo.lng"
+                    (ngModelChange)="user.address.geo.lng = $event"
+                    required
+                    [readonly]="isReadOnly"
+                  >
+                </div>
+              </div>
+              <!-- /.col col-md-6 -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.col -->
+          <div class="col col-md-4">
+            <h4>Company</h4>
+            <!--Company name-->
+            <div class="form-group">
+              <label for="companyName">Company Name</label>
+              <input
+                type="text"
+                name="companyName"
+                id="companyName"
+                class="form-control"
+                [ngModel]="user?.company.name"
+                (ngModelChange)="user.company.name = $event"
+                required
+                [readonly]="isReadOnly"
+              >
+            </div>
+            <!--catchPhrase-->
+            <div class="form-group">
+              <label for="catchPhrase">Catch Phrase</label>
+              <input
+                type="text"
+                name="catchPhrase"
+                id="catchPhrase"
+                class="form-control"
+                [ngModel]="user?.company.catchPhrase"
+                (ngModelChange)="user.company.catchPhrase = $event"
+                required
+                [readonly]="isReadOnly"
+              >
+            </div>
+            <!--bs-->
+            <div class="form-group">
+              <label for="bs">BS</label>
+              <input
+                type="text"
+                name="bs"
+                id="bs"
+                class="form-control"
+                [ngModel]="user?.company.bs"
+                (ngModelChange)="user.company.bs = $event"
+                required
+                [readonly]="isReadOnly"
+              >
+            </div>
+            <button class="btn btn-dark btn-block btn-lg" *ngIf="isReadOnly" (click)="isReadOnly = false">Edit</button>
+            <button class="btn btn-dark btn-block btn-lg" *ngIf="!isReadOnly" (click)="onEdit()">Save</button>
+          </div>
+        </div>
+        <!-- /.row -->
+      </form>
+  </div>
+  <!-- /.card card-body -->
+</div>
+<!-- /.container -->
