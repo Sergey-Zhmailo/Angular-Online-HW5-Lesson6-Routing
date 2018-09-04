@@ -16,6 +16,9 @@ import { ToastrModule } from "ngx-toastr";
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { TodoEditComponent } from './components/todo-edit/todo-edit.component';
 import { TodoAddComponent } from './components/todo-add/todo-add.component';
+import { LoginComponent } from './components/login/login.component';
+import { ReactiveFormsModule } from "@angular/forms";
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -26,13 +29,16 @@ import { TodoAddComponent } from './components/todo-add/todo-add.component';
     NotFoundComponent,
     UserEditComponent,
     TodoEditComponent,
-    TodoAddComponent
+    TodoAddComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     RoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     CommonModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),

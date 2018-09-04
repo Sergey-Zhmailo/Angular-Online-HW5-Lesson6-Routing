@@ -5,6 +5,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { Todo } from "../../models/Todo";
 import { TodosService } from "../../services/todos.service";
 import { ToastrService } from "ngx-toastr";
+import { AuthService } from "../../services/auth.service";
 
 @Component({
   selector: 'app-home',
@@ -19,7 +20,8 @@ export class HomeComponent implements OnInit {
     public userService: UsersService,
     private spinner: NgxSpinnerService,
     public todoService: TodosService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {

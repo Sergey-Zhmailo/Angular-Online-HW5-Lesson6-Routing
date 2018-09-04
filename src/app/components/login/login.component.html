@@ -1,0 +1,36 @@
+<div class="container mt-5">
+  <ngx-spinner size = "large"
+               color = "#fff"
+               type = "cog"
+               class="mb-5"
+  ><p style="font-size: 20px; color: white; margin-top: 100px;">Loading...</p></ngx-spinner>
+  <div class="row">
+    <div class="col-6 mx-auto">
+      <h3 class="text-center">Please login</h3>
+      <div class="card card-body">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" class="form-control" formControlName="email" [ngClass]="{'is-invalid': loginForm.get('email').invalid && loginForm.get('email').dirty}">
+            <div class="invalid-feedback" *ngIf="loginForm.get('email').invalid && loginForm.get('email').dirty">
+              Enter a valid email!
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" class="form-control" formControlName="password" (blur)="onBlur('password')" [ngClass]="{'is-invalid': loginForm.get('password').invalid && loginForm.get('password').dirty}">
+            <div class="invalid-feedback" *ngIf="loginForm.get('password').invalid && loginForm.get('password').dirty">
+              Password min length 8 chars!
+            </div>
+          </div>
+          <button type="submit" class="btn btn-dark btn-block">Login</button>
+          <p class="text-center mt-2">There is no account yet? Please <a routerLink="/register" class="btn btn-dark text-light">Register</a></p>
+        </form>
+      </div>
+      <!-- /.card -->
+    </div>
+    <!-- /.col-6 mx-auto -->
+  </div>
+  <!-- /.row -->
+</div>
+<!-- /.container -->

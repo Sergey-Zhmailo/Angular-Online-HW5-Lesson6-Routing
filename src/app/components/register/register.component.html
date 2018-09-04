@@ -1,0 +1,43 @@
+<div class="container mt-5">
+  <ngx-spinner size = "large"
+               color = "#fff"
+               type = "cog"
+               class="mb-5"
+  ><p style="font-size: 20px; color: white; margin-top: 100px;">Loading...</p></ngx-spinner>
+  <div class="row">
+    <div class="col-6 mx-auto">
+      <h3 class="text-center">Register</h3>
+      <div class="card card-body">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" class="form-control" formControlName="email" [ngClass]="{'is-invalid': registerForm.get('email').invalid && registerForm.get('email').dirty}">
+            <div class="invalid-feedback" *ngIf="registerForm.get('email').invalid && registerForm.get('email').dirty">
+              Enter a valid email!
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="name" name="name" id="name" class="form-control" formControlName="name" [ngClass]="{'is-invalid': registerForm.get('name').invalid && registerForm.get('name').dirty}">
+            <div class="invalid-feedback" *ngIf="registerForm.get('name').invalid && registerForm.get('name').dirty">
+              The name must be only English letters from 3 to 16 characters!
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" class="form-control" formControlName="password" [ngClass]="{'is-invalid': registerForm.get('password').invalid && registerForm.get('password').dirty}">
+            <div class="invalid-feedback" *ngIf="registerForm.get('password').invalid && registerForm.get('password').dirty">
+              The password must be at least 8 characters long and must contain at least one Large letter and at least one digit
+            </div>
+          </div>
+          <button type="submit" class="btn btn-dark btn-block">Register</button>
+          <p class="text-center mt-2">If you have an account Please <a routerLink="/login" class="btn btn-dark text-light">Login</a></p>
+        </form>
+      </div>
+      <!-- /.card -->
+    </div>
+    <!-- /.col-6 mx-auto -->
+  </div>
+  <!-- /.row -->
+</div>
+<!-- /.container -->

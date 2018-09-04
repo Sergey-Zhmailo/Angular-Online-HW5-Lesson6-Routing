@@ -4,6 +4,7 @@ import { ToastrService } from "ngx-toastr";
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Todo } from "../../models/Todo";
 import { TodosService } from "../../services/todos.service";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-todo-edit',
@@ -11,6 +12,8 @@ import { TodosService } from "../../services/todos.service";
   styleUrls: ['./todo-edit.component.css']
 })
 export class TodoEditComponent implements OnInit {
+  todoEditForm: FormGroup;
+
   todo: Todo;
   todoId: number;
   isReadOnly = true;
@@ -29,11 +32,29 @@ export class TodoEditComponent implements OnInit {
     this.todoId = this.activatedRoute.snapshot.params['id'];
     this.todoService.getTodo(this.todoId).subscribe((todoData: Todo) => {
       this.todo = todoData;
+      this.spinner.hide();
     }, err => {
+      this.spinner.hide();
       this.toastr.error('Todo not loaded', 'Error');
     });
 
-    this.spinner.hide();
+    // Init Form
+    this.todoEditForm = new FormGroup({
+      userid: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(16),
+        Validators.pattern(/^[0-9]*$/)
+      ]),
+      title: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.pattern(/^[а-яА-ЯёЁa-zA-Z0-9\s,.]*$/)
+      ]),
+      completed: new FormControl('', [
+        Validators.required,
+        Validators.pattern(/^true$|^false$/)
+      ])
+    });
   }
 
   onEditTodo() {
