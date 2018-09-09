@@ -8,7 +8,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  textLogo: string = "Routing | HW5/6 | Lesson6/7 | Sergey Zhmailo | Angular Online";
+  textLogo: string = "Routing | HW5/6/7 | Lesson6/7/8 | Sergey Zhmailo | Angular Online";
   public logOut: boolean = false;
 
   constructor(
@@ -30,9 +30,7 @@ export class NavbarComponent implements OnInit {
   onLogout() {
     const key = 'token';
     this.authService.logout(key).subscribe( res => {
-      const keyToken = localStorage.getItem('token');
-      this.authService.emitIsLoginEvent(keyToken);
-      this.router.navigate(['/']);
+      this.router.navigate(['login']);
     }, err => {
       console.log(err.message);
     })

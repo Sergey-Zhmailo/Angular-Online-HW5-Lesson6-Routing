@@ -12,7 +12,6 @@ export class AuthService {
   private auth_url: string = environment.auth_url;
   private _token: string;
   public keyToken = localStorage.getItem('token');
-  // private isLogin: BehaviorSubject<string> = new BehaviorSubject('');
   private isLogin = new BehaviorSubject<string>(this.keyToken);
   public isLoginEvent = this.isLogin.asObservable();
 
@@ -40,6 +39,7 @@ export class AuthService {
 
   logout(key) {
     localStorage.removeItem(key);
+    this.emitIsLoginEvent('');
     return of(true);
   }
 

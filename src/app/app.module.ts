@@ -19,6 +19,15 @@ import { TodoAddComponent } from './components/todo-add/todo-add.component';
 import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from "@angular/forms";
 import { RegisterComponent } from './components/register/register.component';
+import { MySlicePipe } from "./pipes/mySlice.pipe";
+import {JoinPipe} from "./pipes/join.pipe";
+import { BgDirective } from './directives/bg.directive';
+import { CustomstyleDirective } from './directives/customstyle.directive';
+import { CustomclassDirective } from './directives/customclass.directive';
+import { MyIfDirective } from './directives/my-if.directive';
+import { MyLoopDirective } from './directives/my-loop.directive';
+import {CustomDatePipe} from "./pipes/customDate.pipe";
+import {CustomSumPipe} from "./pipes/customSum.pipe";
 
 @NgModule({
   declarations: [
@@ -31,7 +40,16 @@ import { RegisterComponent } from './components/register/register.component';
     TodoEditComponent,
     TodoAddComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MySlicePipe,
+    JoinPipe,
+    BgDirective,
+    CustomstyleDirective,
+    CustomclassDirective,
+    MyIfDirective,
+    MyLoopDirective,
+    CustomDatePipe,
+    CustomSumPipe
   ],
   imports: [
     BrowserModule,

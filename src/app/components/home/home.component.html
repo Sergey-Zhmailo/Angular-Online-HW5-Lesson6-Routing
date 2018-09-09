@@ -9,6 +9,11 @@
   </div>
   <!-- /.container -->
   <div class="container mt-5">
+    <p> создать фильтр даты |  {{ data | customDate:'en-GB':{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' } }}</p>
+    <p>создать фильтр который будет суммировать значения массива | {{ testSumPipeArr | customSum }}</p>
+    <button (click)="testSumPipe()">Add 1</button>
+    <!--<div class="alert alert-info" *myIf="!todos?.length"></div>-->
+    <!--<div class="alert alert-danger" *myLoop="let todo of todos; let i = index">{{ i }} - {{ todo.title }}</div>-->
     <table class="table table-striped table-bordered">
       <thead class="thead-dark">
       <tr>
@@ -22,10 +27,10 @@
       </thead>
       <tbody>
       <tr *ngFor="let todo of todos; let i = index">
-        <th scope="row">{{ i + 1 }}</th>
-        <td>{{ todo.userId }}</td>
-        <td>{{ todo.title }}</td>
-        <td>{{ todo.completed }}</td>
+        <th scope="row" [Bg]="'#367fba'" [fontSize]="'20px'">{{ i + 1 }}</th>
+        <td [customStyle]="{'font-size': '25px', 'background': 'red'}">{{ todo.userId }}</td>
+        <td>{{ todo.title | myslice:0 }}</td>
+        <td [customClass]="'myCustomClass'">{{ todo.completed }}</td>
         <td><button class="btn btn-danger" (click)="onDelete(todo.id)">Delete</button></td>
         <td><button routerLink="/todos/{{ todo.id }}" class="btn btn-dark">Edit</button></td>
       </tr>

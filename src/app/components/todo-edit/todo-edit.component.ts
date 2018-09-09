@@ -32,6 +32,9 @@ export class TodoEditComponent implements OnInit {
     this.todoId = this.activatedRoute.snapshot.params['id'];
     this.todoService.getTodo(this.todoId).subscribe((todoData: Todo) => {
       this.todo = todoData;
+      this.todoEditForm.get('userid').setValue(this.todo.userId);
+      this.todoEditForm.get('title').setValue(this.todo.title);
+      this.todoEditForm.get('completed').setValue(this.todo.completed);
       this.spinner.hide();
     }, err => {
       this.spinner.hide();

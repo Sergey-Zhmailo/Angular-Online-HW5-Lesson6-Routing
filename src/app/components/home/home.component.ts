@@ -14,7 +14,10 @@ import { AuthService } from "../../services/auth.service";
 })
 export class HomeComponent implements OnInit {
   users: User[];
-  todos: Todo[];
+  todos: Todo[] = [];
+  testPipe = ['one', 'two', 'three'];
+  data = new Date();
+  testSumPipeArr = [1, 1];
 
   constructor(
     public userService: UsersService,
@@ -43,6 +46,10 @@ export class HomeComponent implements OnInit {
       this.spinner.hide();
       this.toastr.error(err.message, 'Error')
     });
+  }
+
+  testSumPipe() {
+    this.testSumPipeArr.push(1);
   }
 
 }
