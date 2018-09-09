@@ -8,7 +8,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  textLogo: string = "Routing | HW5/6/7 | Lesson6/7/8 | Sergey Zhmailo | Angular Online";
+  textLogo: string = "Routing | HW5/6/7/8 | Lesson6/7/8/9 | Sergey Zhmailo | Angular Online";
   public logOut: boolean = false;
 
   constructor(
