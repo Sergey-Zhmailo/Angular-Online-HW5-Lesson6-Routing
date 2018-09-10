@@ -1,24 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from "@angular/router";
-import { HomeComponent } from "./components/home/home.component";
-import { AboutComponent } from "./components/about/about.component";
-import { NotFoundComponent } from "./components/not-found/not-found.component";
-import { UserEditComponent } from "./components/user-edit/user-edit.component";
-import { TodoEditComponent } from "./components/todo-edit/todo-edit.component";
-import { TodoAddComponent } from "./components/todo-add/todo-add.component";
-import { LoginComponent } from "./components/login/login.component";
 import { AuthGuard } from "./guards/auth.guard";
-import { RegisterComponent } from "./components/register/register.component";
+
+import { homeRoutes } from "./modules/home-module/home-routing";
+import { loginRoutes } from "./modules/login-module/login-routing";
+import { registerRoutes } from "./modules/register-module/register-routing";
+import { notFoundRoutes } from "./modules/not-found-module/not-found-routing";
+import { todoAddRoutes } from "./modules/todo-add-module/todo-add-routing";
+import { todoEditRoutes } from "./modules/todo-edit-module/todo-edit-routing";
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'about', component: AboutComponent, canActivate: [AuthGuard] },
-  { path: 'user/:id', component: UserEditComponent, canActivate: [AuthGuard] },
-  { path: 'todos/:id', component:TodoEditComponent, canActivate: [AuthGuard] },
-  { path: 'new-todo', component: TodoAddComponent, canActivate: [AuthGuard] },
-  { path: '**', component: NotFoundComponent }
+  { path: 'login', children: [...loginRoutes] },
+  { path: 'register', children: [...registerRoutes] },
+  { path: '', children: [...homeRoutes], canActivate: [AuthGuard] },
+  { path: 'todos/:id', children: [...todoEditRoutes], canActivate: [AuthGuard] },
+  { path: 'new-todo', children: [...todoAddRoutes], canActivate: [AuthGuard] },
+  { path: '**', children: [...notFoundRoutes] }
 ];
 
 @NgModule({

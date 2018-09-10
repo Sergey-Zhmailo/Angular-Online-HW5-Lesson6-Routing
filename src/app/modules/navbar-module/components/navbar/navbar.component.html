@@ -1,0 +1,18 @@
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="#">{{ textLogo }}</a>
+    <div class="collapse navbar-collapse ml-auto" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngIf="logOut">
+          <a class="nav-link" routerLink="/">Home</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngIf="logOut">
+          <a class="nav-link" routerLink="/about">About</a>
+        </li>
+        <li class="nav-item" *ngIf="logOut">
+          <a class="nav-link btn btn-danger text-light" (click)="onLogout()"><i class="fa fa-user mr-2"></i>Log out</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

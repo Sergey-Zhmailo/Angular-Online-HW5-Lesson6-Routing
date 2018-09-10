@@ -1,0 +1,70 @@
+<div class="container mt-5">
+  <ngx-spinner size = "large"
+               color = "#fff"
+               type = "cog"
+  ><p style="font-size: 20px; color: white; margin-top: 100px;">Loading Todo...</p></ngx-spinner>
+
+    <form #userEditForm="ngForm" [formGroup]="todoEditForm">
+      <div class="row">
+        <div class="col col-md-6 offset-md-3">
+          <div class="card card-body">
+              <h4>Todo</h4>
+              <!--User Id-->
+              <div class="form-group">
+                <label for="userId">User Id</label>
+                <input
+                  type="text"
+                  name="userId"
+                  id="userId"
+                  class="form-control"
+                  formControlName="userid"
+                  [readonly]="isReadOnly"
+                  [ngClass]="{'is-invalid': todoEditForm.get('userid').invalid && todoEditForm.get('userid').dirty}"
+                >
+                <div class="invalid-feedback" *ngIf="todoEditForm.get('userid').invalid && todoEditForm.get('userid').dirty">
+                  Enter User Id!
+                </div>
+              </div>
+              <!--Title-->
+              <div class="form-group">
+                <label for="title">Title</label>
+                <input
+                  type="text"
+                  name="title"
+                  id="title"
+                  class="form-control"
+                  formControlName="title"
+                  [readonly]="isReadOnly"
+                  [ngClass]="{'is-invalid': todoEditForm.get('title').invalid && todoEditForm.get('title').dirty}"
+                >
+                <div class="invalid-feedback" *ngIf="todoEditForm.get('title').invalid && todoEditForm.get('title').dirty">
+                  Title min length 3 char!
+                </div>
+              </div>
+              <!--completed-->
+              <div class="form-group">
+                <label for="completed">Completed</label>
+                <input
+                  type="text"
+                  name="completed"
+                  id="completed"
+                  class="form-control"
+                  formControlName="completed"
+                  [readonly]="isReadOnly"
+                  [ngClass]="{'is-invalid': todoEditForm.get('completed').invalid && todoEditForm.get('completed').dirty}"
+                >
+                <div class="invalid-feedback" *ngIf="todoEditForm.get('completed').invalid && todoEditForm.get('completed').dirty">
+                  Enter true or false
+                </div>
+              </div>
+              <button class="btn btn-dark btn-block btn-lg" *ngIf="isReadOnly" (click)="isReadOnly = false">Edit</button>
+              <button class="btn btn-dark btn-block btn-lg" *ngIf="!isReadOnly" (click)="onEditTodo()">Save</button>
+          </div>
+          <!-- /.card card-body -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </form>
+</div>
+<!-- /.container -->

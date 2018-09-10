@@ -44,7 +44,7 @@ export class UserEditComponent implements OnInit {
     this.userService.updateUser(updatedUser).subscribe((updUserData: User) => {
       // show message
       this.toastr.success('User edited', 'Success');
-      // Redirect home
+      // Redirect home-module
       this.router.navigate(['/']);
       this.spinner.hide();
     }, err => {
